@@ -18,7 +18,6 @@ def build_and_save_embeddings():
 
     df = pd.read_csv(CLEANED_DATA_PATH)
     
-    # AMÉLIORATION : On crée la description SANS la marque pour recentrer l'IA
     df['description'] = df.apply(
         lambda row: f"{row['DCI']} {row['dosage']} {row['forme']}".replace('nan', ''),
         axis=1

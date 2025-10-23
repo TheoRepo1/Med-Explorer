@@ -4,11 +4,10 @@ import os
 import numpy as np
 from sentence_transformers import util
 import altair as alt
-import urllib.request # NÉCESSAIRE pour le téléchargement
+import urllib.request 
 
 st.set_page_config(layout="wide", page_title="Med-Explorer", page_icon="💊")
 
-# --- NOUVELLE FONCTION DE CHARGEMENT AVEC TÉLÉCHARGEMENT ---
 @st.cache_data
 def load_all_data():
     """
@@ -18,11 +17,8 @@ def load_all_data():
     data_path = os.path.join(data_dir, 'cleaned_sempex.csv')
     embeddings_path = os.path.join(data_dir, 'embeddings.npy')
     
-    # --- !!! VOS URLS À METTRE ICI !!! ---
-    # URL de vos fichiers sur GitHub Releases (obtenues à l'étape 1.2)
-    # Exemple de format: https://github.com/TheoRepo1/Med-Explorer/releases/download/v1.0/cleaned_sempex.csv
-    URL_DATA = "https://github.com/TheoRepo1/Med-Explorer/releases/download/v1.0/cleaned_sempex.csv" # <- REMPLACEZ MOI
-    URL_EMBEDDINGS = "https://github.com/TheoRepo1/Med-Explorer/releases/download/v1.0/embeddings.npy" # <- REMPLACEZ MOI
+    URL_DATA = "https://github.com/TheoRepo1/Med-Explorer/releases/download/v1.0/cleaned_sempex.csv" 
+    URL_EMBEDDINGS = "https://github.com/TheoRepo1/Med-Explorer/releases/download/v1.0/embeddings.npy"
 
     # Créer le dossier data s'il n'existe pas
     os.makedirs(data_dir, exist_ok=True)
@@ -56,8 +52,6 @@ def load_all_data():
         return None, None
 
     return df, embeddings
-
-# --- Le reste du script est identique à la version précédente ---
 
 data, embeddings = load_all_data()
 
